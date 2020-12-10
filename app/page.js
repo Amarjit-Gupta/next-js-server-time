@@ -15,7 +15,9 @@ const Home = () => {
     // Function to fetch server time
     const fetchServerTime = async () => {
       try {
-        const res = await fetch("/api/current"); // Your API route
+        const res = await fetch("/api/current", {
+          cache: "no-store",
+        });
         if (!res.ok) throw new Error("Failed to fetch server time");
         const data = await res.json();
 
